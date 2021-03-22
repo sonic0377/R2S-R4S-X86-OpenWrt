@@ -157,7 +157,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vp
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper package/lean/ipv6-helper
 # 京东签到 By Jerrykuku
 git clone --depth 1 https://github.com/jerrykuku/node-request.git package/new/node-request
-git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/new/luci-app-jd-dailybonus
+svn co -r131 https://github.com/jerrykuku/luci-app-jd-dailybonus/trunk package/new/luci-app-jd-dailybonus
 pushd package/new/luci-app-jd-dailybonus
 sed -i 's/wget-ssl/wget/g' root/usr/share/jd-dailybonus/newapp.sh luasrc/controller/jd-dailybonus.lua
 popd
@@ -169,6 +169,7 @@ svn co https://github.com/QiuSimons/openwrt-packages/branches/main/mos-chinadns 
 svn co https://github.com/QiuSimons/openwrt-packages/branches/main/luci-app-moschinadns package/new/luci-app-moschinadns
 # Mosdns
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/new/mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/new/luci-app-mosdns
 # 流量监管
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-netdata package/lean/luci-app-netdata
 # 上网 APP 过滤
@@ -216,11 +217,13 @@ rm -rf ./feeds/packages/net/smartdns
 mkdir package/new/smartdns
 wget -P package/new/smartdns/ https://github.com/HiGarfield/lede-17.01.4-Mod/raw/master/package/extra/smartdns/Makefile
 sed -i 's,files/etc/config,$(PKG_BUILD_DIR)/package/openwrt/files/etc/config,g' ./package/new/smartdns/Makefile
+rm -rf ./feeds/luci/applications/luci-app-smartdns
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/ntlf9t/luci-app-smartdns package/new/luci-app-smartdns
 # ShadowsocksR Plus+
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/luci-app-ssr-plus
 rm -rf ./package/lean/luci-app-ssr-plus/po/zh_Hans
 pushd package/lean
-wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
+#wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
 popd
 sed -i 's,default n,default y,g' package/lean/luci-app-ssr-plus/Makefile
 sed -i 's,Xray:xray ,Xray:xray-core ,g' package/lean/luci-app-ssr-plus/Makefile
