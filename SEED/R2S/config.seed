@@ -208,7 +208,3 @@ CONFIG_LIBCURL_OPENSSL=y
 #CONFIG_PACKAGE_kmod-fb-sys-ram=y
 #CONFIG_PACKAGE_kmod-gpu-lima=y
 #CONFIG_PACKAGE_kmod-multimedia-input=y
-
-#阿里云和腾讯云
-CONFIG_PACKAGE-luci-app-aliddns=y
-CONFIG_PACKAGE_luci-app-tencentddns=y
