@@ -34,7 +34,7 @@
 
 ### 下载
 
-- 选择自己<b>设备对应的固件</b>，并[下载](https://github.com/sonic0377/R2S-R4S-OpenWrt/releases)
+- 选择自己<b>设备对应的固件</b>，并[下载](https://github.com/sonic0377/R2S-R4S-X86-OpenWrt/releases)
 
 ### 截图
 
